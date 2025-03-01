@@ -1,0 +1,62 @@
+Class:  
+•	A class is a user-defined data type.
+•	It contains data members (variables) and member functions (methods).
+•	These members can be accessed and used by creating an instance (object) of the class.
+•	A class acts as a blueprint for creating objects.
+
+Object: 
+•	An object is an identifiable entity with characteristics and behavior.
+•	It is an instance of a class.
+
+**Note: When a class is defined, no memory is allocated but when it is instantiated (i.e. an object is created) memory is allocated.
+
+
+Resources: 
+
+https://www.geeksforgeeks.org/c-classes-and-objects/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Employee{
+    
+    public:   // access specifier (By default private)
+     string name;
+     int id;
+     int salary;
+     
+     void displayDetails(){
+        cout<<"Name : "<<name<<"\n";
+        cout<<"Id : "<<id<<"\n";
+        cout<<"Salary : "<<salary<<"\n";
+     }
+}e; // Here also we can initialize the objects (Creation of object way3)
+
+int main() {
+   //Creation of Object way1
+    Employee e1;
+    e1.name = "Harika";
+    e1.id = 101;
+    e1.salary = 2500000;
+    e1.displayDetails();
+
+    //Creation of Object way2
+    Employee e2("Leela",102,239098);
+    e2.displayDetails();
+
+     e.displayDetails();  // We created the obj but not assigned //values.So prints default values
+
+}
+
+Output :
+
+Name : Harika
+Id : 101
+Salary : 2500000
+Name : Leela
+Id : 102
+Salary : 239098
+Name : 
+Id : 0
+Salary : 0
+
