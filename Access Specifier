@@ -1,0 +1,9 @@
+Access Specifiers : 
+
+•	Access Modifiers control access to class members in C++.
+•	Also called Access Specifiers, they define access levels for class members.
+•	Types of Access Specifiers in C++:
+o	Public: Members can be accessed from outside the class.
+o	Private: Members can be accessed only within the class.
+o	Protected: Members can be accessed within the class and by derived classes.
+•	Default Access: If no specifier is given, members are private by default.
