@@ -7,3 +7,9 @@ o	Public: Members can be accessed from outside the class.
 o	Private: Members can be accessed only within the class.
 o	Protected: Members can be accessed within the class and by derived classes.
 •	Default Access: If no specifier is given, members are private by default.
+
+Ques : 
+"If member variables are declared as private, they cannot be accessed directly outside the class.
+ However, I need a way to update and retrieve the data securely. How can this be achieved?"
+
+Ans : Getter and Setter Method
