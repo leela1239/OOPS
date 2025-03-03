@@ -1,0 +1,87 @@
+Member Functions: 
+
+
+There are 2 ways to define a member function:
+Inside class definition
+Outside class definition
+
+**To define a member function outside the class definition,
+We have to first declare the function prototype in the class definition.
+Then we have to use the scope resolution:: operator along with the class name and function name.
+
+#include <bits/stdc++.h>
+using namespace std;
+class Employee{
+    public:
+        int id;
+        string name;
+// Outside Class Def Function
+    void printId();   // Here we only prototype / declare the function and the definition is written outside of the class by using scope resolution operator (::)
+
+//Inside Class Def Function
+    void printName(){ 
+        cout<<"Name : "<<name<<"\n";
+    }
+};
+
+//Defining the function outside of class
+//Use className::Function Name
+void Employee::printId(){ 
+    cout<<"Id : "<<id<<"\n";
+}
+int main() {
+    Employee e(101,"Harika");
+    e.printId();
+    e.printName();
+}
+
+Here suppose if u make the functions as private , 
+i.e ; like this
+class Employee{
+    public:
+        int id;
+        string name;
+    private:
+        void printName(){
+            cout<<"Name : "<<name<<"\n";
+        }
+};
+int main() {
+    Employee e(101,"Harika");
+    e.printId();
+    e.printName();
+}
+
+Then we get error when accessing the functions through object as we access in main class which is a different class.
+
+Then we have  different options :
+
+1. Call this private function from a public function .
+
+Eg : 
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Employee{
+
+    public:
+        int id;
+        string name;
+        void displayName(){
+            printName();    // Acessing the prv fun from public fun
+        }
+    private:
+        void printName(){
+            cout<<"Name : "<<name<<"\n";
+        }
+};
+
+int main() {
+    
+    Employee e(101,"Harika");
+    e.displayName();
+}
+
+
+
