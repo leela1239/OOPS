@@ -1,0 +1,43 @@
+Friend Class:
+•	A friend class can access private and protected members of other classes in which it is declared as a friend.
+•	It is sometimes useful to allow a particular class to access private and protected members of other classes.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Employee{
+    protected:
+        int id;
+    private:
+        string name;
+    public:
+    
+    Employee(int id, string name) { // You need to add the constructor as u are passing the parameters while creating the object or else default constructor is called which is of no parameters actually
+        this->id = id;
+        this->name = name;
+    }
+    friend class Emp;
+};
+class Emp{
+    public :
+        void displyDetails(Employee e){
+            cout<<"Id = "<<e.id<<"\n";
+            cout<<"Name = "<<e.name<<"\n";
+        }
+};
+int main() {
+Employee e(101,"Harika");
+Emp obj;
+obj.displyDetails(e);  //here we are calling the friend class methods where the parameter in the original class which has restricted accessed members.
+
+}
+
+
+
+ Key Points About Friend Class :
+
+•	Friend classes break strict encapsulation, so use them only when necessary.
+•	 A friend class is not inherited—even if B is a friend of A, B’s derived classes don’t automatically become friends.
+•	Friendship is not mutual—if Ais a friend of B, it doesn’t mean B is a friend of A unless explicitly declared. 
+•	Friendship is not transitive—if A is a friend of B and B is a friend of C, A does not automatically become a friend of C.
+
