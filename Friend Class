@@ -1,0 +1,45 @@
+** In a friend function, we need to pass an object of the class as a parameter because friend functions are not members of the class and do not have this pointer access.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Employee{
+    public :
+        int id;
+        string name;
+        
+    friend void showId(Employee &e);
+        
+    private:
+        void displayId();
+};
+void Employee::displayId(){
+    cout<<"Id = "<<id<<"\n";
+}
+void showId(Employee &e){
+    e.displayId();   // In the friend function implementation call the private method.
+}
+int main() {
+Employee e(101,"Harika");
+showId(e);              //Here u need to call the friend function as we cannot access the private function directly. 
+}
+
+Q1 . what if friend function is private?? Can we declare it private?
+
+No, friend functions cannot be private because they are not members of the class.
+
+Why?
+•	Friend functions are not part of the class scope. They are independent functions that have special access to private and protected members.
+•	Since they are not inside the class, they cannot be controlled by access specifiers (public, private, protected).
+•	Friend functions do not belong to the class, so access specifiers do not affect them.
+•	Declaring a friend function in the private: section does NOT make it private. It can still be called from anywhere.
+•	Friend functions can access private members, but they themselves remain global functions.
+
+===========================================
+
+Q2. Is it mandatory to implement a friend function outside the class, or can it be defined inside the class as well?
+•	A friend function can be defined inside or outside the class, but defining it inside the class is not common because friend functions are not members of the class.
+•	Friend functions are usually implemented outside the class for better structure.
+•	Defining them inside the class is possible but not recommended.
+•	Best practice: Declare inside, implement outside
+
