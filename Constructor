@@ -1,0 +1,23 @@
+Constructor : 
+•	A constructor is a special method that is automatically called when an object is created.
+•	Used to initialize data members of new objects.
+•	The constructor name is the same as the class name.
+
+Types of Constructors:
+
+1.	Default Constructor 
+  o	No parameters.
+  o	Automatically created by the compiler if not defined.
+2.	Parameterized Constructor 
+  o	Takes arguments to initialize an object.
+3.	Copy Constructor 
+  o	Initializes an object using another object of the same class.
+
+Characteristics of Constructors:
+
+•	Has no return type.
+•	Mostly declared public (can be private too).
+•	Called automatically when an object is created.
+•	A class can have multiple constructors (overloaded).
+•	The constructor matching the function signature is called.
+
