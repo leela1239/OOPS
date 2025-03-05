@@ -1,0 +1,74 @@
+This pointer :
+‘this’ pointers is a pointer to the current instance of a class.
+It is used to refer to the object within its own member functions.
+It is used to differentiate between local variables and class attributes with the same name.
+It helps in method chaining by returning the current object.
+It cannot be modified.
+
+Following are the situations where ‘this’ pointer is used:
+1) When local variable’s name is same as member’s name
+
+#include <bits/stdc++.h>
+using namespace std;
+class Employee{
+  public:
+    int id;
+    string name;
+    Employee(int id,string name){
+        this->id = id;
+        this->name = name;
+    }
+    void displayDetails(){
+        cout<<"Id = "<<id<<" Name = "<<name<<"\n";
+    }
+};
+
+int main() {
+// your code goes here
+Employee e(101,"Harika");
+e.displayDetails();
+}
+
+
+
+
+2) To return reference to the calling object
+When a reference to a local object is returned, the returned reference can be used to chain function calls on a single object.
+This allows method chaining, where multiple function calls are linked together.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Employee {
+public:
+    int id;
+    string name;
+
+    Employee(int id, string name) {
+        this->id = id;
+        this->name = name;
+    }
+
+    Employee& setDetails(int id, string name) {
+        this->id = id;
+        this->name = name;
+        return *this; // Returning reference to the current object
+    }
+
+    Employee& displayDetails() {
+        cout << "Id = " << id << " Name = " << name << "\n";
+        return *this; // Returning reference for method chaining
+    }
+};
+
+int main() {
+    Employee e(101, "Harika");
+    e.displayDetails().setDetails(102, "Leela").displayDetails(); // Method chaining
+    return 0;
+}
+
+
+Output :
+Id = 101 Name = Harika
+Id = 102 Name = Leela
+
