@@ -10,8 +10,64 @@ Types of Constructors:
   o	Automatically created by the compiler if not defined.
 2.	Parameterized Constructor 
   o	Takes arguments to initialize an object.
+  
+  #include <bits/stdc++.h>
+  using namespace std;
+  class Employee{
+      public :
+          int id;
+          string name;
+          Employee(int eid,string ename){    //Parametrized Constructor
+              id = eid;
+              name = ename;
+          }
+      void displayDetails(){
+          cout<<"Id = "<<id<<"\n";
+          cout<<"Name = "<<name<<"\n";
+      }
+      
+  };
+  int main() {
+  // your code goes here
+  Employee e(101,"HARIKA");
+  e.displayDetails();
+  
+  }
+*** Suppose if the parameters of constructor are also named as the member variables of class .Then u need to use this pointer.
+
 3.	Copy Constructor 
   o	Initializes an object using another object of the same class.
+#include <bits/stdc++.h>
+using namespace std;
+class Employee{
+    public :
+        int id;
+        string name;
+        Employee(int eid,string ename){    //Parametrized Constructor
+            id = eid;
+            name = ename;
+        }
+        
+        Employee(Employee &e){ //Copy Constructor. Even u didn't write this also it works as we have Default Copy COnstructor same as default constructor
+            id = e.id;
+            name = e.name;
+        }
+    void displayDetails(){
+        cout<<"Id = "<<id<<"\n";
+        cout<<"Name = "<<name<<"\n";
+    }
+    
+};
+int main() {
+// your code goes here
+Employee e(101,"HARIKA");
+Employee e1 = e;
+e.displayDetails();
+e1.displayDetails();
+
+}
+
+
 
 Characteristics of Constructors:
 
