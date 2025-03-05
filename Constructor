@@ -3,11 +3,24 @@ Constructor :
 •	Used to initialize data members of new objects.
 •	The constructor name is the same as the class name.
 
+=======================================================================================================================================
+
+Characteristics of Constructors:
+
+•	Has no return type.
+•	Mostly declared public (can be private too).
+•	Called automatically when an object is created.
+•	A class can have multiple constructors (overloaded).
+•	The constructor matching the function signature is called.
+
+=======================================================================================================================================
 Types of Constructors:
 
 1.	Default Constructor 
   o	No parameters.
   o	Automatically created by the compiler if not defined.
+
+===================
 2.	Parameterized Constructor 
   o	Takes arguments to initialize an object.
   
@@ -35,45 +48,110 @@ Types of Constructors:
   }
 *** Suppose if the parameters of constructor are also named as the member variables of class .Then u need to use this pointer.
 
+==========================
+
 3.	Copy Constructor 
   o	Initializes an object using another object of the same class.
-#include <bits/stdc++.h>
-using namespace std;
-class Employee{
-    public :
-        int id;
-        string name;
-        Employee(int eid,string ename){    //Parametrized Constructor
-            id = eid;
-            name = ename;
-        }
-        
-        Employee(Employee &e){ //Copy Constructor. Even u didn't write this also it works as we have Default Copy COnstructor same as default constructor
-            id = e.id;
-            name = e.name;
-        }
-    void displayDetails(){
-        cout<<"Id = "<<id<<"\n";
-        cout<<"Name = "<<name<<"\n";
-    }
-    
-};
-int main() {
-// your code goes here
-Employee e(101,"HARIKA");
-Employee e1 = e;
-e.displayDetails();
-e1.displayDetails();
+  #include <bits/stdc++.h>
+  using namespace std;
+  class Employee{
+      public :
+          int id;
+          string name;
+          Employee(int eid,string ename){    //Parametrized Constructor
+              id = eid;
+              name = ename;
+          }
+          
+          Employee(Employee &e){ //Copy Constructor. Even u didn't write this also it works as we have Default Copy COnstructor same as default constructor
+              id = e.id;
+              name = e.name;
+          }
+      void displayDetails(){
+          cout<<"Id = "<<id<<"\n";
+          cout<<"Name = "<<name<<"\n";
+      }
+      
+  };
+  int main() {
+  // your code goes here
+  Employee e(101,"HARIKA");
+  Employee e1 = e;
+  e.displayDetails();
+  e1.displayDetails();
+  
+  }
+==========================
+Move Constructor:
 
+• A move constructor transfers ownership of resources instead of copying them.
+•	It avoids unnecessary deep copies, improving performance.
+•	Takes an rvalue reference (ClassName&&) as a parameter.
+•	Moves resources to the new object and leaves the source in a valid but empty state.
+•	The compiler provides a default move constructor if none is explicitly defined.
+•	Prevents redundant memory allocations and enhances efficiency.
+
+
+Copy and Move Constructor
+
+
+#include <iostream>
+using namespace std;
+
+class Employee {
+public:
+    int id;
+    string name;
+
+    // Parameterized Constructor
+    Employee(int eid, string ename) {
+        id = eid;
+        name = ename;
+        cout << "Parameterized Constructor called\n";
+    }
+
+    // Copy Constructor
+    Employee(const Employee& other) {
+        id = other.id;
+        name = other.name;
+        cout << "Copy Constructor called\n";
+    }
+
+    // Move Constructor
+    Employee(Employee&& other) noexcept {
+        id = other.id;
+        name = move(other.name); // Move the string instead of copying
+        cout << "Move Constructor called\n";
+    }
+
+    void displayDetails() {
+        cout << "Id = " << id << "\n";
+        cout << "Name = " << name << "\n";
+    }
+};
+
+int main() {
+    Employee e1(101, "HARIKA"); // Calls Parameterized Constructor
+    Employee e2 = e1;           // Calls Copy Constructor
+    Employee e3 = move(e1);     // Calls Move Constructor
+
+    cout << "\nDisplaying e2 (Copy Constructed Object):\n";
+    e2.displayDetails();
+
+    cout << "\nDisplaying e3 (Move Constructed Object):\n";
+    e3.displayDetails();
+
+    return 0;
 }
 
 
+1 Copy Constructor (const Employee&)
+•	Creates a duplicate of an existing Employee object.
+1.	Move Constructor (Employee&&)
+•	Moves the resource (name) instead of copying.
+•	Uses move(other.name) to transfer ownership.
+2.	move(e1) in main()
+•	e3 takes ownership of e1's data, avoiding unnecessary copies.
 
-Characteristics of Constructors:
 
-•	Has no return type.
-•	Mostly declared public (can be private too).
-•	Called automatically when an object is created.
-•	A class can have multiple constructors (overloaded).
-•	The constructor matching the function signature is called.
 
