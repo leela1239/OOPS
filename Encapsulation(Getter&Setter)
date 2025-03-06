@@ -1,0 +1,64 @@
+Encapsulation : It is defined as binding together the data and the functions that manipulate them.
+
+
+In C++, getters and setters are part of data encapsulation used to protect our data, particularly when creating classes.
+These are public methods that are used to access and modify the private or protected members of a class
+
+
+#include <bits/stdc++.h>
+using namespace std;
+class Employee{
+    private:
+        int id;
+    protected:
+        string name;
+    public:
+    Employee(int id,string name){
+        this->id = id;
+        this->name = name;
+    }
+        
+    void setId(int new_id){
+        id = new_id;
+    }
+    
+    void getId(){
+        cout<<"Id = "<<id<<"\n";
+    }
+    
+    void setName(){
+        name = "Leela";
+    }
+    
+    void getName(){
+        cout<<"Name = "<<name<<"\n";
+    }
+};
+int main() {
+// your code goes here
+    Employee e(101,"Harika");
+    cout<<"Before setting Id \n";
+    e.getId();
+    e.setId(201);
+    cout<<"After setting Id \n";
+    e.getId();
+    cout<<"Before setting Name\n";
+    e.setName();
+    e.getName();
+    cout<<"After setting Name \n";
+    e.getName();
+    
+}
+
+Output:
+
+Before setting Id 
+Id = 101
+After setting Id 
+Id = 201
+Before setting Name
+Name = Leela
+After setting Name 
+Name = Leela
+
+
