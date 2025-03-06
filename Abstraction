@@ -1,0 +1,27 @@
+Abstraction : Abstraction means displaying only essential information and hiding the details.
+
+Advantages of Data Abstraction:
+
+•	Hides low-level code, simplifying development.
+•	Reduces code duplication, improving reusability.
+•	Internal changes don’t affect users.
+•	Enhances security by exposing only necessary details.
+•	Increases readability by reducing complexity.
+•	Allows easy addition of new features with minimal impact.
+================================
+Abstraction in C++:
+•	Using Classes:
+  o	Groups data members and functions into a single unit.
+  o	Uses access specifiers to control visibility.
+•	Using Header Files:
+  o	Hides implementation details.
+  o	Example: pow() function calculates power without exposing the algorithm.
+
+=======================================================
+
+Implementation of Abstraction :
+
+Using Access Specifiers : public , private
+
+Using Abstract Class and Interfernece
+
